@@ -24,6 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Patch README
         run: |
           python3 ./add_link_to_readme.py README.md > README.md
