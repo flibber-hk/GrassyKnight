@@ -159,7 +159,7 @@ namespace GrassyKnight
             System.IO.Stream png = 
                 System.Reflection.Assembly
                     .GetExecutingAssembly()
-                    .GetManifestResourceStream(name);
+                    .GetManifestResourceStream($"GrassyKnight.img.{name}");
             try {
                 byte[] buffer = new byte[png.Length];
                 png.Read(buffer, 0, buffer.Length);
