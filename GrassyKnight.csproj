@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GrassyKnight</RootNamespace>
     <AssemblyName>GrassyKnight</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -27,6 +27,11 @@
       <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
       <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+	<Reference Include="Assembly-CSharp">
+      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/MMHOOK_Assembly-CSharp.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.dll</HintPath>
@@ -68,6 +73,11 @@
       <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll</HintPath>
       <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
+	<Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.InputLegacyModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.InputLegacyModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.InputLegacyModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIModule.dll</HintPath>
@@ -93,6 +103,7 @@
     <Compile Include="GrassyBox.cs" />
     <Compile Include="AutoMower.cs" />
     <Compile Include="GrassCount.cs" />
+	<Compile Include="Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
