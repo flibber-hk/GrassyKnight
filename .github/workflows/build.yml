@@ -26,7 +26,7 @@ jobs:
 
       - name: Patch README
         run: |
-          ./add_link_to_readme.py README.md > "$@"
+          ./add_link_to_readme.py README.md > README.md
 
       - name: Setup MAPI
         uses: BadMagic100/setup-hk@v1
