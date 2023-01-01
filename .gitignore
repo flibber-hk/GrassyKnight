@@ -4,6 +4,7 @@ bin/
 .vs/
 zip-build/
 GrassyKnight.zip
+__pycache__
 
 # LocalBuildProperties file
 LocalBuildProperties.props
