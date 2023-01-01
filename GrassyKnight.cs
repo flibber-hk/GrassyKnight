@@ -6,11 +6,6 @@ using UnityEngine.UI;
 namespace GrassyKnight
 {
     public class GrassyKnight : Modding.Mod, Modding.IGlobalSettings<MyGlobalSettings>, Modding.ILocalSettings<MySaveData> {
-        // In a previous version we accessed ModSettings.BoolValues directly,
-        // but it looks like the latest code in the Modding.API repo no longer
-        // has BoolValues as a member at all. This way of using ModSettings is
-        // more in line with other mod authors do so we should be somewhat
-        // future-proof now.
 
         public MySaveData OnSaveLocal() => new MySaveData {
             serializedGrassDB = GrassStates.Serialize()
