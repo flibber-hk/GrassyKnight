@@ -21,11 +21,7 @@ For example, here's what your settings file might look like by default:
   "UseHeuristicGrassKnower": false,
   "AutomaticallyCutGrass": false,
   "ToggleCompassHotkey": "Space",
-  "DisableCompass": true,
-  "BoolValues": {},
-  "FloatValues": {},
-  "IntValues": {},
-  "StringValues": {}
+  "DisableCompass": true
 }
 ```
 
@@ -36,11 +32,7 @@ And here's what you would change it to in order to enable the compass:
   "UseHeuristicGrassKnower": false,
   "AutomaticallyCutGrass": false,
   "ToggleCompassHotkey": "Space",
-  "DisableCompass": false,
-  "BoolValues": {},
-  "FloatValues": {},
-  "IntValues": {},
-  "StringValues": {}
+  "DisableCompass": false
 }
 ```
 
