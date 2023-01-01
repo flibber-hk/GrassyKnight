@@ -1,115 +1,122 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{542DBA18-73A8-4824-8BB3-00B43529701F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>net472</TargetFramework>
     <RootNamespace>GrassyKnight</RootNamespace>
-    <AssemblyName>GrassyKnight</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <AssemblyTitle>GrassyKnight</AssemblyTitle>
+    <AssemblyVersion>2.0.0.*</AssemblyVersion>
+    <Deterministic>false</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>1</WarningLevel>
+
+  <PropertyGroup>
+    <HollowKnightRefs>..\API</HollowKnightRefs>
+    <ExportDir>bin\Publish</ExportDir>
   </PropertyGroup>
+
+  <!--Backward compatibility-->
+  <PropertyGroup Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">
+    <HollowKnightRefs>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed</HollowKnightRefs>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll')">
+    <HollowKnightRefs>/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed</HollowKnightRefs>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">
+    <HollowKnightRefs>..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed</HollowKnightRefs>
+  </PropertyGroup>
+
+  <!--Gitignored local build properties file to modify the HollowKnightRefs value without needing to change anything in the remote.-->
+  <Import Project="LocalBuildProperties.props" Condition="Exists('LocalBuildProperties.props')" />
+
+
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.dll</HintPath>
+    <Reference Include="MMHOOK_Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HollowKnightRefs)\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="System.Core">
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.Core.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.Core.dll</HintPath>
+    <Reference Include="MMHOOK_PlayMaker, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HollowKnightRefs)\MMHOOK_PlayMaker.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml">
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.Xml.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/System.Xml.dll</HintPath>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>$(HollowKnightRefs)\MonoMod.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
+    <Reference Include="PlayMaker, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\PlayMaker.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.ImageConversionModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.ImageConversionModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.TextRenderingModule.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+	<Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.JSONSerializeModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.Physics2DModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.Physics2DModule.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+      <HintPath>$(HollowKnightRefs)\UnityEngine.Physics2DModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UIModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.UIModule.dll</HintPath>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath Condition="Exists('..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.PhysicsModule.dll')">..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-      <HintPath Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.PhysicsModule.dll')">/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/UnityEngine.PhysicsModule.dll</HintPath>
-      <HintPath Condition="Exists('..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIElementsModule.dll')">..\..\..\Desktop\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>$(HollowKnightRefs)\UnityEngine.UIModule.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="img/*.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GrassyKnight.cs" />
-    <Compile Include="GrassDB.cs" />
-    <Compile Include="GrassKey.cs" />
-    <Compile Include="GrassState.cs" />
-    <Compile Include="GrassList.cs" />
-    <Compile Include="GrassStats.cs" />
-    <Compile Include="GrassKnower.cs" />
-    <Compile Include="Behaviour.cs" />
-    <Compile Include="GrassyCompass.cs" />
-    <Compile Include="GrassyBox.cs" />
-    <Compile Include="AutoMower.cs" />
-    <Compile Include="GrassCount.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="img/*.png" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="img/grass-icon.png">
-      <LogicalName>grass-icon.png</LogicalName>
-    </EmbeddedResource>
-    <EmbeddedResource Include="img/global-grass-icon.png">
-      <LogicalName>global-grass-icon.png</LogicalName>
-    </EmbeddedResource>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods')">
-      copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods"
-    </PostBuildEvent>
-    <PostBuildEvent Condition="Exists('/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Mods/')">
-      cp "$(TargetPath)" "/Users/johnsullivan/Library/Application Support/Steam/steamapps/common/Hollow Knight/hollow_knight.app/Contents/Resources/Data/Managed/Mods/"
-    </PostBuildEvent>
-  </PropertyGroup>
+
+  <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
+    </ItemGroup>
+  </Target>
+  
+  <Target Name="CopyMod" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb" DestinationFolder="$(HollowKnightRefs)\Mods\$(TargetName)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CreateReleaseZip" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release'">
+    <RemoveDir Directories="$(ExportDir)/$(TargetName)/" />
+    <MakeDir Directories="$(ExportDir)/$(TargetName)/" />
+    <MakeDir Directories="$(ExportDir)/$(TargetName)/zip/" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ExportDir)/$(TargetName)/" />
+    <Copy SourceFiles="README.md;LICENSE;ALL_KEYBOARD_KEY_NAMES.txt;screenshot.png;$(TargetPath);$(TargetDir)/$(TargetName).pdb" DestinationFolder="$(ExportDir)/$(TargetName)/zip/" />
+    <ZipDirectory SourceDirectory="$(ExportDir)/$(TargetName)/zip/" DestinationFile="$(ExportDir)/$(TargetName)/$(TargetName).zip" />
+
+    <GetFileHash Files="$(ExportDir)/$(TargetName)/$(TargetName).zip" Algorithm="SHA256">
+      <Output TaskParameter="Items" ItemName="FilesWithHashes" />
+    </GetFileHash>
+    <Message Importance="High" Text="@(FilesWithHashes->'%(Identity): %(FileHash)')" />
+    <WriteLinesToFile File="$(ExportDir)/$(TargetName)/metadata/SHA.txt" Lines="@(FilesWithHashes->'%(FileHash)')" Overwrite="true" Encoding="UTF-8" />
+
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="Targets" />
+    </GetAssemblyIdentity>
+    <ItemGroup>
+      <VersionNumber Include="@(Targets->'%(Version)')" />
+    </ItemGroup>
+    <WriteLinesToFile File="$(ExportDir)/$(TargetName)/metadata/version.txt" Lines="@(VersionNumber)" Overwrite="true" Encoding="UTF-8" />
+  </Target>    
+
 </Project>
