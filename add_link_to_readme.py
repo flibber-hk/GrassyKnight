@@ -15,6 +15,6 @@ with open(sys.argv[1]) as fin:
 
         lines.append(line)
 
-with open(sys.argv[2]) as fout:
+with open(sys.argv[2], 'w') as fout:
     for line in lines:
         fout.write(line)
