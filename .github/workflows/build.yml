@@ -42,12 +42,12 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: GrassyKnight
-          path: GrassyKnight/bin/Publish/GrassyKnight/zip
+          path: bin/Publish/GrassyKnight/zip
       - name: Upload metadata
         uses: actions/upload-artifact@v3
         with:
           name: metadata
-          path: GrassyKnight/bin/Publish/GrassyKnight/metadata
+          path: bin/Publish/GrassyKnight/metadata
 
   release:
     needs:
