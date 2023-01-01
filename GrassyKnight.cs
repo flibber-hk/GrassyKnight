@@ -45,7 +45,7 @@ namespace GrassyKnight
         // status.
         Behaviour UtilityBehaviour = null;
 
-        public override string GetVersion() => "1.3.0";
+        public override string GetVersion() => GetType().Assembly.GetName().Version.ToString();
 
         public GrassyKnight() : base("Grassy Knight") {
             GrassyKnight.Instance = this;

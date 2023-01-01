@@ -16,10 +16,4 @@ Global
 		{542DBA18-73A8-4824-8BB3-00B43529701F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{542DBA18-73A8-4824-8BB3-00B43529701F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {62BF1FF9-FEB0-4DF1-B550-AF5063797865}
-	EndGlobalSection
 EndGlobal
