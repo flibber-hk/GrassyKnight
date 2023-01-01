@@ -24,11 +24,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Patch README
+        run: |
+          ./add_link_to_readme.py README.md > $@
+
       - name: Setup MAPI
         uses: BadMagic100/setup-hk@v1
         with:
           apiPath: API
-
+          # If dependencies are added, they should be set via the dependencyFilePath argument to this action
+          
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
       
