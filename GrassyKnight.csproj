@@ -34,6 +34,12 @@
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(HollowKnightRefs)\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="GrassRando">
+      <HintPath>$(HollowKnightRefs)\Mods\Grass Randomizer\GrassRandoV2.dll</HintPath>
+    </Reference>
+    <Reference Include="ItemChanger">
+      <HintPath>$(HollowKnightRefs)\Mods\ItemChanger\ItemChanger.dll</HintPath>
+    </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(HollowKnightRefs)\MMHOOK_Assembly-CSharp.dll</HintPath>
@@ -48,6 +54,12 @@
     <Reference Include="PlayMaker, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(HollowKnightRefs)\PlayMaker.dll</HintPath>
     </Reference>
+    <Reference Include="RandomizerMod" Condition="Exists('$(HollowKnightRefs)\Mods\RandomizerMod')">
+      <HintPath>$(HollowKnightRefs)\Mods\RandomizerMod\RandomizerMod.dll</HintPath>
+    </Reference>
+    <Reference Include="RandomizerMod" Condition="Exists('$(HollowKnightRefs)\Mods\Randomizer 4')">
+      <HintPath>$(HollowKnightRefs)\Mods\Randomizer 4\RandomizerMod.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>$(HollowKnightRefs)\UnityEngine.dll</HintPath>
     </Reference>
@@ -58,7 +70,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(HollowKnightRefs)\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
-	<Reference Include="UnityEngine.InputLegacyModule">
+  <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>$(HollowKnightRefs)\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">

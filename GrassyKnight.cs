@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrassyKnight.Rando;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,7 +28,7 @@ namespace GrassyKnight
 
         // Stores which grass is cut and allows queries (like "where's the
         // nearest uncut grass?")
-        GrassDB GrassStates = new GrassDB();
+        internal GrassDB GrassStates = new GrassDB();
 
         // Knows if an object is grass. Very wise. Uwu. Which knower we use
         // depends on configuration
@@ -120,6 +121,17 @@ namespace GrassyKnight
             if (Settings.AutomaticallyCutGrass) {
                 Modding.ModHooks.HeroUpdateHook +=
                     HandleCheckAutoMower;
+            }
+
+            // Hook Grass Rando - this way the UI will more accurately reflect
+            // the state of grass locations checked
+            try
+            {
+                GrassRandoInterop.Hook();
+            }
+            catch (Exception ex)
+            {
+                LogError("Error hooking rando\n" + ex);
             }
         }
 

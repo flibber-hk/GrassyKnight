@@ -111,7 +111,9 @@ namespace GrassyKnight
             }
         }
 
-        public bool TrySet(GrassKey k, GrassState newState) {
+        public bool TrySet(GrassKey k, GrassState newState) => TrySet(k, newState, false);
+
+        public bool TrySet(GrassKey k, GrassState newState, bool allowUncut) {
             GrassKey canonical = ToCanonical(k);
 
             TryAddScene(canonical.SceneName);
@@ -122,7 +124,7 @@ namespace GrassyKnight
                 oldState = state;
             }
 
-            if (oldState == null || (int)oldState < (int)newState) {
+            if (oldState == null || (int)oldState < (int)newState || allowUncut) {
                 _grassStates[canonical.SceneName][canonical] = newState;
 
                 _sceneStats[canonical.SceneName].HandleUpdate(oldState, newState);
