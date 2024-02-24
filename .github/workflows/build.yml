@@ -30,7 +30,7 @@ jobs:
         uses: BadMagic100/setup-hk@v1
         with:
           apiPath: API
-          dependencyFilePath: ModDependencies.txt
+          # If dependencies are added, they should be set via the dependencyFilePath argument to this action
           
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
