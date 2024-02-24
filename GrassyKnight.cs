@@ -1,5 +1,4 @@
-﻿using GrassyKnight.Rando;
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -121,17 +120,6 @@ namespace GrassyKnight
             if (Settings.AutomaticallyCutGrass) {
                 Modding.ModHooks.HeroUpdateHook +=
                     HandleCheckAutoMower;
-            }
-
-            // Hook Grass Rando - this way the UI will more accurately reflect
-            // the state of grass locations checked
-            try
-            {
-                GrassRandoInterop.Hook();
-            }
-            catch (Exception ex)
-            {
-                LogError("Error hooking rando\n" + ex);
             }
         }
 
