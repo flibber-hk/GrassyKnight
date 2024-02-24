@@ -27,7 +27,7 @@ namespace GrassyKnight
 
         // Stores which grass is cut and allows queries (like "where's the
         // nearest uncut grass?")
-        internal GrassDB GrassStates = new GrassDB();
+        GrassDB GrassStates = new GrassDB();
 
         // Knows if an object is grass. Very wise. Uwu. Which knower we use
         // depends on configuration
