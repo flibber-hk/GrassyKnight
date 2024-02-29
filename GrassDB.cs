@@ -113,6 +113,13 @@ namespace GrassyKnight
 
         public bool TrySet(GrassKey k, GrassState newState) => TrySet(k, newState, false);
 
+        /// <summary>
+        /// Try to update the state of the grass with key k.
+        /// </summary>
+        /// <param name="k">The grass key.</param>
+        /// <param name="newState">The new state.</param>
+        /// <param name="allowUncut">If false, do not update the state if the grass has already been cut.</param>
+        /// <returns>True if the state was changed.</returns>
         public bool TrySet(GrassKey k, GrassState newState, bool allowUncut) {
             GrassKey canonical = ToCanonical(k);
 
