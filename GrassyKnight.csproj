@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>GrassyKnight</RootNamespace>
     <AssemblyTitle>GrassyKnight</AssemblyTitle>
-    <AssemblyVersion>2.1.1.*</AssemblyVersion>
+    <AssemblyVersion>2.1.2.*</AssemblyVersion>
     <Deterministic>false</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
